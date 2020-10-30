@@ -1,0 +1,22 @@
+version: "2"
+services:
+  tmm:
+    image: huaihuai0406/tinymediamanager
+    container_name: tmm
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Asia/Shanghai
+      - UMASK_SET=022
+      - VNC_PASSWORD=vncpassword
+    volumes:
+      - /volume1/downloads/tmm:/config
+      - /volume4/tv_link:/tv
+      - /volume2/mv_link:/mv
+      - /volume3/video_link:/video
+      - /volume2/sgnb_link:/sgnb
+      - /volume3/movie_link:/movie
+    ports:
+      - 5800:5800
+      - 5900:5900
+    restart: always
